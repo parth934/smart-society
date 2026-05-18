@@ -1,0 +1,13 @@
+
+{
+  "name": "smart-society-root",
+  "version": "1.0.0",
+  "scripts": {
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm run dev --prefix backend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+"dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
