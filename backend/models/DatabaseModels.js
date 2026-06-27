@@ -65,6 +65,7 @@ const visitorSchema = new mongoose.Schema({
   timeIn: { type: String },
   timeOut: { type: String, default: null }
 });
+
 // 7. ESSENTIAL SERVICES
 const serviceSchema = new mongoose.Schema({
   name: { type: String, required: true },

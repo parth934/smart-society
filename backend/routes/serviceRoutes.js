@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-// Define the Parent/Child Schema right here to keep it safe!
 const serviceSchema = new mongoose.Schema({
   category: { type: String, required: true }, // e.g., "Plumbing"
   contacts: [
