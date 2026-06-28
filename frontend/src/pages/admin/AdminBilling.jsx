@@ -25,13 +25,13 @@ const AdminBilling = () => {
   const fetchData = async () => {
     try {
       // 1. Fetch all bills
-      const billsRes = await axios.get('http://localhost:5000/api/billing');
+      const billsRes = await axios.get('http://https://smart-society-rr5e.onrender.com/api/billing');
       setBills(billsRes.data);
 
       // 2. Fetch all residents to extract dynamic flat numbers
       // (Assuming you have a route that returns users/residents)
       try {
-        const residentsRes = await axios.get('http://localhost:5000/api/residents');
+        const residentsRes = await axios.get('http://https://smart-society-rr5e.onrender.com/api/residents');
         // Extract flats, remove duplicates using Set, and sort them alphabetically
         const flatList = residentsRes.data.map(user => user.flat).filter(Boolean);
         const uniqueFlats = [...new Set(flatList)].sort();
@@ -82,7 +82,7 @@ const AdminBilling = () => {
           status: 'Unpaid',
           issuedOn: new Date().toLocaleDateString('en-GB')
         };
-        await axios.post('http://localhost:5000/api/billing', billData);
+        await axios.post('http://https://smart-society-rr5e.onrender.com/api/billing', billData);
         alert(`Invoice created for Flat ${newBill.flat}`);
       } 
       else {
@@ -92,7 +92,7 @@ const AdminBilling = () => {
           dueDate: newBill.dueDate,
           issuedOn: new Date().toLocaleDateString('en-GB')
         };
-        await axios.post('http://localhost:5000/api/billing/bulk', bulkData);
+        await axios.post('http://https://smart-society-rr5e.onrender.com/api/billing/bulk', bulkData);
         alert(`Successfully generated invoices for ALL flats!`);
       }
 

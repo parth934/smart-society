@@ -23,10 +23,10 @@ const ResidentDashboard = () => {
       try {
         // Fetch all relevant data concurrently!
         const [billsRes, complaintsRes, amenitiesRes, noticesRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/bills'),
-          axios.get('http://localhost:5000/api/complaints'),
-          axios.get('http://localhost:5000/api/amenities'),
-          axios.get('http://localhost:5000/api/notices')
+          axios.get('http://https://smart-society-rr5e.onrender.com/api/bills'),
+          axios.get('http://https://smart-society-rr5e.onrender.com/api/complaints'),
+          axios.get('http://https://smart-society-rr5e.onrender.com/api/amenities'),
+          axios.get('http://https://smart-society-rr5e.onrender.com/api/notices')
         ]);
 
         // 1. Calculate Unpaid Bills for THIS resident

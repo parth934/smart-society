@@ -24,7 +24,7 @@ const DocumentCenter = () => {
   useEffect(() => {
     const fetchDocs = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/documents');
+        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/documents');
         setDocuments(response.data);
       } catch (error) {
         console.error("Error fetching documents:", error);
@@ -40,10 +40,10 @@ const DocumentCenter = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        const response = await axios.put(`http://localhost:5000/api/documents/${editingId}`, formData);
+        const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/documents/${editingId}`, formData);
         setDocuments(documents.map(d => d._id === editingId ? response.data : d));
       } else {
-        const response = await axios.post('http://localhost:5000/api/documents', formData);
+        const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/documents', formData);
         setDocuments([response.data, ...documents]);
       }
       setIsModalOpen(false);
@@ -56,7 +56,7 @@ const DocumentCenter = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this document link?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/documents/${id}`);
+        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/documents/${id}`);
         setDocuments(documents.filter(d => d._id !== id));
       } catch (error) {
         alert("Failed to delete document.");

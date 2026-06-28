@@ -35,11 +35,11 @@ const AmenitiesBooking = () => {
       setIsLoading(true);
       try {
         // Fetch Facilities
-        const facRes = await axios.get('http://localhost:5000/api/amenities');
+        const facRes = await axios.get('http://https://smart-society-rr5e.onrender.com/api/amenities');
         setFacilities(facRes.data);
 
         // Fetch Bookings
-        const bkgRes = await axios.get('http://localhost:5000/api/amenities/bookings/all');
+        const bkgRes = await axios.get('http://https://smart-society-rr5e.onrender.com/api/amenities/bookings/all');
         setAllBookings(bkgRes.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -55,10 +55,10 @@ const AmenitiesBooking = () => {
     e.preventDefault();
     try {
       if (editingFacilityId) {
-        const response = await axios.put(`http://localhost:5000/api/amenities/${editingFacilityId}`, facilityForm);
+        const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/amenities/${editingFacilityId}`, facilityForm);
         setFacilities(facilities.map(f => f._id === editingFacilityId ? response.data : f));
       } else {
-        const response = await axios.post('http://localhost:5000/api/amenities', facilityForm);
+        const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/amenities', facilityForm);
         setFacilities([...facilities, response.data]);
       }
       setIsFacilityModalOpen(false);
@@ -70,7 +70,7 @@ const AmenitiesBooking = () => {
   const handleDeleteFacility = async (id) => {
     if (window.confirm("Are you sure you want to delete this facility?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/amenities/${id}`);
+        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/amenities/${id}`);
         setFacilities(facilities.filter(f => f._id !== id));
       } catch (error) {
         alert("Failed to delete facility.");
@@ -105,7 +105,7 @@ const AmenitiesBooking = () => {
     };
     
     try {
-      const response = await axios.post('http://localhost:5000/api/amenities/bookings/new', newBooking);
+      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/amenities/bookings/new', newBooking);
       setAllBookings([response.data, ...allBookings]);
       setIsBookingModalOpen(false);
       setActiveTab('bookings');
@@ -117,7 +117,7 @@ const AmenitiesBooking = () => {
   // --- 4. UPDATE BOOKING STATUS (Admin Only) ---
   const handleStatusUpdate = async (id, newStatus) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/amenities/bookings/${id}`, { status: newStatus });
+      const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/amenities/bookings/${id}`, { status: newStatus });
       setAllBookings(allBookings.map(b => (b._id === id || b.id === id) ? response.data : b));
     } catch (error) {
       alert("Failed to update status.");

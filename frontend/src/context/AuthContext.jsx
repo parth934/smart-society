@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       // Talk to the backend!
-      const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/users/login', { email, password });
       
       const loggedInUser = response.data.user;
       
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       // Talk to the backend!
-      const response = await axios.post('http://localhost:5000/api/users/register', userData);
+      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/users/register', userData);
       
       const newUser = response.data.user;
       
