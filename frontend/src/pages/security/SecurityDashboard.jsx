@@ -26,7 +26,7 @@ const SecurityDashboard = () => {
   useEffect(() => {
     const fetchVisitors = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/visitors');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/visitors');
         setVisitors(response.data);
       } catch (error) {
         console.error("Error fetching visitors:", error);
@@ -87,7 +87,7 @@ const SecurityDashboard = () => {
     };
 
     try {
-      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/visitors', newVisitor);
+      const response = await axios.post('https://smart-society-rr5e.onrender.com/api/visitors', newVisitor);
       setVisitors([response.data.data || response.data, ...visitors]);
       
       // Reset form
@@ -108,7 +108,7 @@ const SecurityDashboard = () => {
   const handleMarkExit = async (id) => {
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     try {
-      const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/visitors/${id}`, { timeOut: currentTime });
+      const response = await axios.put(`https://smart-society-rr5e.onrender.com/api/visitors/${id}`, { timeOut: currentTime });
       setVisitors(visitors.map(visitor => visitor.id === id || visitor._id === id ? response.data.data || response.data : visitor));
     } catch (error) {
       alert("Failed to record exit time.");

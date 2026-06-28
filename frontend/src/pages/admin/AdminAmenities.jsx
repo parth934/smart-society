@@ -17,7 +17,7 @@ const AdminAmenities = () => {
   useEffect(() => {
     const fetchAmenities = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/amenities');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/amenities');
         setAmenities(response.data);
       } catch (error) {
         console.error("Error fetching amenities:", error);
@@ -34,11 +34,11 @@ const AdminAmenities = () => {
     try {
       if (editingId) {
         // UPDATE
-        const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/amenities/${editingId}`, formData);
+        const response = await axios.put(`https://smart-society-rr5e.onrender.com/api/amenities/${editingId}`, formData);
         setAmenities(amenities.map(a => a._id === editingId ? response.data : a));
       } else {
         // CREATE
-        const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/amenities', formData);
+        const response = await axios.post('https://smart-society-rr5e.onrender.com/api/amenities', formData);
         setAmenities([...amenities, response.data]);
       }
       closeModal();
@@ -51,7 +51,7 @@ const AdminAmenities = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to remove this amenity?")) {
       try {
-        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/amenities/${id}`);
+        await axios.delete(`https://smart-society-rr5e.onrender.com/api/amenities/${id}`);
         setAmenities(amenities.filter(a => a._id !== id));
       } catch (error) {
         alert("Failed to delete amenity.");

@@ -19,7 +19,7 @@ const NoticeBoard = () => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/notices');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/notices');
         setNotices(response.data);
       } catch (error) {
         console.error("Error fetching notices:", error);
@@ -44,7 +44,7 @@ const NoticeBoard = () => {
     };
 
     try {
-      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/notices', newNotice);
+      const response = await axios.post('https://smart-society-rr5e.onrender.com/api/notices', newNotice);
       setNotices([response.data.data, ...notices]); // Add to top of the list
       setIsModalOpen(false);
       setFormData({ title: '', description: '', type: 'General Notice' });
@@ -61,7 +61,7 @@ const NoticeBoard = () => {
     if (window.confirm("Are you sure you want to delete this notice?")) {
       try {
         // Our backend expects the custom 'id' field
-        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/notices/${id}`);
+        await axios.delete(`https://smart-society-rr5e.onrender.com/api/notices/${id}`);
         setNotices(notices.filter(n => n.id !== id));
       } catch (error) {
         console.error("Error deleting notice:", error);

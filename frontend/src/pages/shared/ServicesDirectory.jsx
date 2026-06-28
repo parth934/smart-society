@@ -26,7 +26,7 @@ const ServicesDirectory = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/services');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/services');
         setServices(response.data);
       } catch (error) {
         console.error("Error fetching services:", error);
@@ -50,7 +50,7 @@ const ServicesDirectory = () => {
     if (!isAdmin || !newCategoryName.trim()) return;
 
     try {
-      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/services', { category: newCategoryName });
+      const response = await axios.post('https://smart-society-rr5e.onrender.com/api/services', { category: newCategoryName });
       setServices([...services, response.data]);
       setIsCategoryModalOpen(false);
       setNewCategoryName('');
@@ -65,7 +65,7 @@ const ServicesDirectory = () => {
     if (!isAdmin) return;
     if (window.confirm("Delete this entire category and ALL its contacts?")) {
       try {
-        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/services/${id}`);
+        await axios.delete(`https://smart-society-rr5e.onrender.com/api/services/${id}`);
         setServices(services.filter(srv => srv._id !== id));
       } catch (error) {
         alert("Failed to delete category.");
@@ -79,7 +79,7 @@ const ServicesDirectory = () => {
     if (!isAdmin) return;
 
     try {
-      const response = await axios.post(`http://https://smart-society-rr5e.onrender.com/api/services/${categoryId}/contacts`, newContact);
+      const response = await axios.post(`https://smart-society-rr5e.onrender.com/api/services/${categoryId}/contacts`, newContact);
       setServices(services.map(srv => srv._id === categoryId ? response.data : srv));
       setActiveCategoryId(null);
       setNewContact({ name: '', phone: '' });
@@ -91,7 +91,7 @@ const ServicesDirectory = () => {
   const handleDeleteContact = async (categoryId, contactId) => {
     if (!isAdmin) return;
     try {
-      const response = await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/services/${categoryId}/contacts/${contactId}`);
+      const response = await axios.delete(`https://smart-society-rr5e.onrender.com/api/services/${categoryId}/contacts/${contactId}`);
       setServices(services.map(srv => srv._id === categoryId ? response.data : srv));
     } catch (error) {
       alert("Failed to delete contact.");

@@ -20,7 +20,7 @@ const ResidentBilling = () => {
     const fetchBills = async () => {
       try {
         // Fetch Resident's personal bills (matching by flat or email)
-        const billsRes = await axios.get('http://https://smart-society-rr5e.onrender.com/api/billing');
+        const billsRes = await axios.get('https://smart-society-rr5e.onrender.com/api/billing');
         const myBills = billsRes.data.filter(b => 
           b.residentEmail === user.email || b.flat === user.flat
         );
@@ -44,7 +44,7 @@ const ResidentBilling = () => {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       // Hit your real backend update route
-      const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/billing/${checkoutBill._id}`, { status: 'Paid' });
+      const response = await axios.put(`https://smart-society-rr5e.onrender.com/api/billing/${checkoutBill._id}`, { status: 'Paid' });
       
       // Update local state to reflect payment instantly
       setBills(bills.map(b => b._id === checkoutBill._id ? response.data : b));

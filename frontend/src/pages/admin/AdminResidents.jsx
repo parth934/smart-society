@@ -22,7 +22,7 @@ const AdminResidents = () => {
   const loadResidents = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/users');
+      const response = await axios.get('https://smart-society-rr5e.onrender.com/api/users');
       setResidents(response.data.filter(u => u.role === 'resident'));
     } catch (error) {
       console.error("Error fetching residents:", error);
@@ -53,11 +53,11 @@ const AdminResidents = () => {
     try {
       if (editingId) {
         // UPDATE existing user
-        const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/users/${editingId}`, formData);
+        const response = await axios.put(`https://smart-society-rr5e.onrender.com/api/users/${editingId}`, formData);
         setResidents(residents.map(r => r._id === editingId ? response.data : r));
       } else {
         // CREATE new user
-        const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/users/register', {
+        const response = await axios.post('https://smart-society-rr5e.onrender.com/api/users/register', {
           ...formData, flat: formData.flat.toUpperCase()
         });
         setResidents([response.data.user, ...residents]);
@@ -74,7 +74,7 @@ const AdminResidents = () => {
   const handleDelete = async (id, name) => {
     if (window.confirm(`🚨 Are you sure you want to permanently remove ${name}?`)) {
       try {
-        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/users/${id}`);
+        await axios.delete(`https://smart-society-rr5e.onrender.com/api/users/${id}`);
         setResidents(residents.filter(r => r._id !== id));
       } catch (error) {
         alert("Failed to delete resident.");

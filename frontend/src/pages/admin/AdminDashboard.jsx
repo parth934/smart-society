@@ -32,10 +32,10 @@ const AdminDashboard = () => {
       try {
         // 1. Fetch EVERYTHING from your real backend
         const [visitorsRes, amenitiesRes, complaintsRes, billsRes] = await Promise.all([
-          axios.get('http://https://smart-society-rr5e.onrender.com/api/visitors').catch(() => ({ data: [] })),
-          axios.get('http://https://smart-society-rr5e.onrender.com/api/amenities').catch(() => ({ data: [] })),
-          axios.get('http://https://smart-society-rr5e.onrender.com/api/complaints').catch(() => ({ data: [] })),
-          axios.get('http://https://smart-society-rr5e.onrender.com/api/billing').catch(() => ({ data: [] })) 
+          axios.get('https://smart-society-rr5e.onrender.com/api/visitors').catch(() => ({ data: [] })),
+          axios.get('https://smart-society-rr5e.onrender.com/api/amenities').catch(() => ({ data: [] })),
+          axios.get('https://smart-society-rr5e.onrender.com/api/complaints').catch(() => ({ data: [] })),
+          axios.get('https://smart-society-rr5e.onrender.com/api/billing').catch(() => ({ data: [] })) 
         ]);
 
         const visitors = visitorsRes.data;

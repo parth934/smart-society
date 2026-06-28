@@ -16,7 +16,7 @@ const ResidentComplaints = () => {
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/complaints');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/complaints');
         const myComplaints = response.data.filter(c => c.residentEmail === user.email);
         setComplaints(myComplaints);
       } catch (error) {
@@ -45,7 +45,7 @@ const ResidentComplaints = () => {
     };
 
     try {
-      const response = await axios.post('http://https://smart-society-rr5e.onrender.com/api/complaints', newComplaint);
+      const response = await axios.post('https://smart-society-rr5e.onrender.com/api/complaints', newComplaint);
       setComplaints([response.data, ...complaints]); 
       setIsModalOpen(false);
       setFormData({ title: '', category: 'Maintenance', description: '' });

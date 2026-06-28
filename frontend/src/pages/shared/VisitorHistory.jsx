@@ -17,7 +17,7 @@ const VisitorHistory = () => {
   useEffect(() => {
     const fetchVisitors = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/visitors');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/visitors');
         setVisitors(response.data);
       } catch (error) {
         console.error("Error fetching visitors:", error);

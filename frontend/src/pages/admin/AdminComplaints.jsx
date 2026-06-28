@@ -9,7 +9,7 @@ const AdminComplaints = () => {
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
-        const response = await axios.get('http://https://smart-society-rr5e.onrender.com/api/complaints');
+        const response = await axios.get('https://smart-society-rr5e.onrender.com/api/complaints');
         const sortedComplaints = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setComplaints(sortedComplaints);
       } catch (error) {
@@ -23,7 +23,7 @@ const AdminComplaints = () => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const response = await axios.put(`http://https://smart-society-rr5e.onrender.com/api/complaints/${id}`, {
+      const response = await axios.put(`https://smart-society-rr5e.onrender.com/api/complaints/${id}`, {
         status: newStatus
       });
       setComplaints(complaints.map(c => c._id === id ? { ...c, status: newStatus } : c));
@@ -35,7 +35,7 @@ const AdminComplaints = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this complaint?")) {
       try {
-        await axios.delete(`http://https://smart-society-rr5e.onrender.com/api/complaints/${id}`);
+        await axios.delete(`https://smart-society-rr5e.onrender.com/api/complaints/${id}`);
         setComplaints(complaints.filter(c => c._id !== id));
       } catch (error) {
         alert("Failed to delete complaint.");
